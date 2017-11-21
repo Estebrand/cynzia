@@ -8,4 +8,9 @@ class StorefrontController < ApplicationController
 
   def items_by_brand
   end
+
+  def feature
+  	@products = Product.all
+  end
+
 end

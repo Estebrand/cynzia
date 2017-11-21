@@ -12,48 +12,54 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :product_name %>
+    <p class="products-label">Image</p>
+    <%= image_tag product.image.url, class: "products-pic" %>
+  </div>
+  <div class="form-group">
+    <strong class="products-label">Upload an Image</strong>
+    <%= form.file_field :image %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :product_price %>
+    <%= form.label :name, class: "products-label" %>
+    <%= form.text_field :name, id: :product_name, class: "products-field" %>
   </div>
 
   <div class="field">
-    <%= form.label :quantity %>
-    <%= form.number_field :quantity, id: :product_quantity %>
+    <%= form.label :price, class: "products-label" %>
+    <%= form.text_field :price, id: :product_price, class: "products-field" %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description, id: :product_description %>
+    <%= form.label :quantity, class: "products-label" %>
+    <%= form.number_field :quantity, id: :product_quantity, class: "products-field" %>
   </div>
 
   <div class="field">
-    <%= form.label :brand %>
-    <%= form.text_field :brand, id: :product_brand %>
+    <%= form.label :description, class: "products-label" %>
+    <%= form.text_area :description, id: :product_description, class: "products-field" %>
   </div>
 
   <div class="field">
-    <%= form.label :rating %>
-    <%= form.number_field :rating, id: :product_rating %>
+    <%= form.label :brand, class: "products-label" %>
+    <%= form.text_field :brand, id: :product_brand, class: "products-field" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating, class: "products-label" %>
+    <%= form.number_field :rating, id: :product_rating, class: "products-field" %>
   </div>
 
   <div class="form-group">
 
     <%= form.select :category_id, @categories.collect {|c| [c.name, c.id]}, {include_blank: "Please select a category"} %>
   </div>
-  <div class="form-group">
-    <strong>Upload Piece Image</strong>
-    <%= form.file_field :image %>
-  <div>
+
     
 
-  </div>
+
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-warning" %>
   </div>
 <% end %>
