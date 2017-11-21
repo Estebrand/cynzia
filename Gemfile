@@ -24,7 +24,6 @@ gem 'devise'
 gem 'cancan'
 gem 'better_errors', group: :development
 gem 'carrierwave'
-gem 'pry-rails'
 gem 'binding_of_caller'
 # gem 'therubyracer', platforms: :ruby
 

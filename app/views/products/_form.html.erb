@@ -10,21 +10,29 @@
       </ul>
     </div>
   <% end %>
-
+<!-- Image -->
   <div class="field">
     <p class="products-label">Image</p>
+    <% if product.image.url != nil %>
     <%= image_tag product.image.url, class: "products-pic" %>
+    <% end %>
   </div>
+<!-- Upload Image -->
   <div class="form-group">
     <strong class="products-label">Upload an Image</strong>
     <%= form.file_field :image %>
   </div>
-
+<!--  Image Type -->
+  <div class="field">
+    <%= form.label :image_type, class: "products-label" %>
+    <%= form.select :image_type, @categories.collect {|c| [c.name,]}, {include_blank: "Please select an image type"} %>
+  </div>
+<!-- Image Name -->
   <div class="field">
     <%= form.label :name, class: "products-label" %>
     <%= form.text_field :name, id: :product_name, class: "products-field" %>
   </div>
-
+<!-- Image Price -->
   <div class="field">
     <%= form.label :price, class: "products-label" %>
     <%= form.text_field :price, id: :product_price, class: "products-field" %>
@@ -51,7 +59,7 @@
   </div>
 
   <div class="form-group">
-
+    <%= form.label :category_id, class: "products-label" %>
     <%= form.select :category_id, @categories.collect {|c| [c.name, c.id]}, {include_blank: "Please select a category"} %>
   </div>
 

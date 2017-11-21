@@ -7,3 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 categories = Category.create([{name: "Computers"}, {name: "Smart Phones"}, {name: "Televisions"}, {name: "Game Console"}, {name: "Video Games"}, {name: "Appliances"},{name: "Other"}])
+
+# images = Picture.create([{type: "Square"}, {type: "Portrait"}, {type: "Landscape"}])
