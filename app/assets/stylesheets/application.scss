@@ -13,3 +13,32 @@
  *= require_tree .
  *= require_self
  */
+
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+@import 'font-awesome';
+
+.thumb{
+	width:75px;
+	height: 75px;
+	border-radius: 5px;
+}
+
+.show-pic{
+	width:150px;
+	height: 150px;
+}
+
+.storefront-pic{
+	width:90%;
+	height: 100%;
+	margin: 0 auto;
+	display: block;
+	border-radius: 5px;
+
+}
+
+.storefront-text{
+	margin-left:5%;
+}
+

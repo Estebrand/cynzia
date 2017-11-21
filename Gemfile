@@ -17,6 +17,15 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
+gem 'bootstrap-sass'
+gem 'font-awesome-rails'
+gem 'jquery-rails'
+gem 'devise'
+gem 'cancan'
+gem 'better_errors', group: :development
+gem 'carrierwave'
+gem 'pry-rails'
+gem 'binding_of_caller'
 # gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views
