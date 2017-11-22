@@ -24,14 +24,14 @@
   </div>
 <!--  Image Type -->
   <div class="field">
-    <%= label_tag(:image_type, "Portrait")  %>
-    <%= radio_button_tag(:image_type, "Portrait") %>
+    <label for="theme">Image Type:</label>
+    
+    <% [ 'Portfolio', 'Landscape', 'Square' ].each do |type| %>
+      <br><%= radio_button_tag 'Image Type', type, @image_type == type %>
+     
+      <%= type.humanize %>
+    <% end %>
 
-    <%= label_tag(:image_type, "Landscape")  %>
-    <%= radio_button_tag(:image_type, "Landscape") %>
-
-    <%= label_tag(:image_type, "Square")  %>
-    <%= radio_button_tag(:image_type, "Square") %>
   </div>
 <!-- Image Name -->
   <div class="field">

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get 'checkout' => 'cart#checkout'
 
+  get 'edit_item' => 'cart#edit_line_item'
+
 
   root 'storefront#feature'
 
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
 
   get 'branding' => 'storefront#items_by_brand'
 
-  get 'login' => 'users#edit'
+  # get 'login' => 'users#edit'
 
   devise_for :users
   resources :products
