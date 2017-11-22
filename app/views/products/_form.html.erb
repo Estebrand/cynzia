@@ -24,8 +24,14 @@
   </div>
 <!--  Image Type -->
   <div class="field">
-    <%= form.label :image_type, class: "products-label" %>
-    <%= form.select :image_type, @categories.collect {|c| [c.name,]}, {include_blank: "Please select an image type"} %>
+    <%= label_tag(:image_type, "Portrait")  %>
+    <%= radio_button_tag(:image_type, "Portrait") %>
+
+    <%= label_tag(:image_type, "Landscape")  %>
+    <%= radio_button_tag(:image_type, "Landscape") %>
+
+    <%= label_tag(:image_type, "Square")  %>
+    <%= radio_button_tag(:image_type, "Square") %>
   </div>
 <!-- Image Name -->
   <div class="field">

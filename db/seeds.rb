@@ -6,6 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-categories = Category.create([{name: "Computers"}, {name: "Smart Phones"}, {name: "Televisions"}, {name: "Game Console"}, {name: "Video Games"}, {name: "Appliances"},{name: "Other"}])
+categories = Category.create([{name: "Fine Art"}, {name: "People Portrait"}, {name: "Pet Portrait"}, {name: "Past Work"}, {name: "Store"},])
 
 # images = Picture.create([{type: "Square"}, {type: "Portrait"}, {type: "Landscape"}])

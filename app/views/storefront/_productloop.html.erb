@@ -1,0 +1,50 @@
+
+<div class ="row">
+	<% @products.each do |product| %>
+		<div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+			<div class="panel center-it">
+				
+				<% if product.image.url.nil? == false %>
+					<p><%= image_tag product.image.url, class: "storefront-pic" %></p>
+
+				<% end %>
+					<h3  class="storefront-text"><%= link_to product.name, product%></h3>
+					<p class="storefront-text"><%= number_to_currency product.price%></p>
+					<p>
+					<a href="#" class="storefront-text" data-toggle="modal" data-toggle="modal" data-target="#myModal_<%= product.id %>">
+						<span class="glyphicon glyphican-plus"></span>Quick Info
+					</a>
+				</p>
+			</div>
+		</div>
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal_<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel" class="storefront-text"> <%= link_to product.name, product %></h4>
+			      </div>
+			      <!-- MODAL BODY  -->
+			      <div class="modal-body">
+			      	<% if product.image.url.nil? == false%>
+			      		<p><%= image_tag product.image.url, class: "storefront-pic" %></p>	      		
+			      	<% end %>
+
+			      		<h3 class="storefront-text"> <%= link_to product.name, product %></h3>
+			      		<p class="storefront-text"><%= number_to_currency product.price %></p>
+			      		<p class="storefront-text">	Details: <%= product.description %></p>
+			      </div>
+
+			      <div class="modal-footer">
+
+			      <!-- EMPTY FOR NOW -->
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+			<!-- END OF MODAL -->
+	<%end %>
+</div>

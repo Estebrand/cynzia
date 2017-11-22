@@ -18,12 +18,34 @@
       <a ><%=link_to "Cynzia Sanchez", root_path, class: "navbar-brand" %></a>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <a class="nav-item nav-link active"><%=link_to "Home", root_path %><span class="sr-only">(current)</span></a>
-          <a class="nav-item nav-link"><%=link_to "Portaits", products_path %></a>
-          <a class="nav-item nav-link"><%=link_to "Products", products_path %></a>
-           <a class="nav-item nav-link" ><%=link_to "Store", storefront_all_items_path %></a>
+            <a class="nav-item nav-link active"><%=link_to "Home", root_path %><span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link"><%=link_to "Portaits", products_path %></a>
+            <a class="nav-item nav-link"><%=link_to "Products", products_path %></a>
+             <a class="nav-item nav-link" ><%=link_to "Store", storefront_all_items_path %></a>
+           
+    <!--  Category selectors  -->
+            <li class="dropdown navbar-list">
+              <a href="#"
+                  class="dropdown-toggle  nav-item nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
+                <ul class="dropdown-menu">
+                    <% @categories.each do |category| %>
+                      <li><%= link_to category.name, categorical_path(category_id: category.id) %></li>
+                    <% end %>
+                </ul>
 
-         
+            </li> 
+      <!-- ITEMS BY BRAND -->
+            <li class="dropdown navbar-list">
+              <a href="#" class="dropdown-toggle nav-item nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Brands</a>
+              <ul class="dropdown-menu">
+                <% @brands.each do |brand| %>
+                  <li><%= link_to brand, branding_path(brand: brand) %></li>
+                <% end %>
+              </ul>
+            </li> 
+            <!-- End Brands -->  
+
+
           </div>
         </div>
       </nav>
