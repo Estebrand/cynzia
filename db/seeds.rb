@@ -8,4 +8,4 @@
 
 categories = Category.create([{name: "Fine Art"}, {name: "People Portrait"}, {name: "Pet Portrait"}, {name: "Past Work"}, {name: "Store"},])
 
-# images = Picture.create([{type: "Square"}, {type: "Portrait"}, {type: "Landscape"}])
+image_type = Picture.create([{shape: "Square"}, {shape: "Portrait"}, {shape: "Landscape"}])

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+ # CART
   post 'add_to_cart'=> 'cart#add_to_cart'
 
   get 'view_order' => 'cart#view_order'
@@ -8,7 +9,17 @@ Rails.application.routes.draw do
 
   get 'edit_item' => 'cart#edit_line_item'
 
+  post 'order_complete' => 'cart#order_complete'
 
+  get 'edit_line_item' => 'cart#edit_line_item'
+
+  post 'edit_line_item' => 'cart#edit_line_item'
+
+  post 'delete_line_item' => 'cart#delete_line_item'
+  
+  get 'delete_line_item' => 'cart#delete_line_item'
+
+# MAIN NAVIGATIONS 
   root 'storefront#feature'
 
   get 'store'=> 'storefront#all_items'

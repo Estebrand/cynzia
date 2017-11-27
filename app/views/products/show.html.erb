@@ -6,7 +6,7 @@
 </p>
 <p>
   <strong>Image Type:</strong>
-  <%= @product.image_type %>
+  <%= @picture.shape %>
 
 </p>
 <p>
@@ -41,7 +41,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @product.category_id %>
+  <%= @product.category.name %>
 </p>
 
 <%= link_to 'Edit', edit_product_path(@product) %> |

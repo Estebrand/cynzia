@@ -4,7 +4,7 @@
 
 <% @products.each do |product| %>
 
-	<% if product.category_id = 2 %>
+	<% if product.category_id == 2 %>
 		<p><%= image_tag product.image.url, class: "feature-pic" %>
 				<%= product.name %>
 		</p>

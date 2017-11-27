@@ -33,6 +33,9 @@
     <% end %>
 
   </div>
+  <div class="field">
+    <%= form.select :image_type, @pictures.collect { |i|[i.shape, i.id]} %>
+  </div>
 <!-- Image Name -->
   <div class="field">
     <%= form.label :name, class: "products-label" %>

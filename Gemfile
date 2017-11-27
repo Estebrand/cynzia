@@ -25,6 +25,9 @@ gem 'cancan'
 gem 'better_errors', group: :development
 gem 'carrierwave'
 gem 'binding_of_caller'
+
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+gem 'figaro'
 # gem 'therubyracer', platforms: :ruby
 
 # Use CoffeeScript for .coffee assets and views

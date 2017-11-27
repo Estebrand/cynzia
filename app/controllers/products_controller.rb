@@ -12,17 +12,20 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+    @picture = Picture.find(@product.image_type)
   end
 
   # GET /products/new
   def new
     @product = Product.new
     @categories = Category.all  
+    @pictures = Picture.all
   end
 
   # GET /products/1/edit
   def edit
     @categories = Category.all   
+    @pictures = Picture.all
   end
 
   # POST /products
