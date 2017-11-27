@@ -23,17 +23,9 @@
     <%= form.file_field :image %>
   </div>
 <!--  Image Type -->
-  <div class="field">
-    <label for="theme">Image Type:</label>
-    
-    <% [ 'Portfolio', 'Landscape', 'Square' ].each do |type| %>
-      <br><%= radio_button_tag 'Image Type', type, @image_type == type %>
-     
-      <%= type.humanize %>
-    <% end %>
 
-  </div>
   <div class="field">
+     <%= form.label :image_type, class: "products-label" %>
     <%= form.select :image_type, @pictures.collect { |i|[i.shape, i.id]} %>
   </div>
 <!-- Image Name -->

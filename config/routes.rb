@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+# ADMIN
+  get 'all_users'=> 'admin#all_users'
+
+  get 'edit_user' => 'admin#edit_user'
+  post 'edit_user' => 'admin#edit_user'
+
+  get 'show_user'=>'admin#show_user'
+
+  get 'delete_user'=> 'admin#delete_user'
+
  # CART
   post 'add_to_cart'=> 'cart#add_to_cart'
 
