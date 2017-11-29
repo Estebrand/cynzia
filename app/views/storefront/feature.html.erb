@@ -2,19 +2,14 @@
 
 <div class="feature">
 
+<div id="slideshow" class="sliders" style:"clear:both;">
+	<%= @feature %>
 
-				<% @products.each do |product| %>
+      <% @carousel.each do |carousel| %>
 
-						<% if product.category_id == 11 %>
-						<p><%= image_tag product.image.url, class: "feature-pic" %>	</p>
-						<% end %>
-		
+      <%= image_tag carousel, class: "slide"%>
 
-				<% end %>
-
-
-         
-
-
-
+      <% end %>
 </div>
+
+</div> 

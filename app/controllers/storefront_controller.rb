@@ -15,7 +15,23 @@ class StorefrontController < ApplicationController
   end
 
   def feature
-  	@products = Product.all
+   # Make Array
+    @products = Product.all
+     @carousel = []
+  	 
+     @products.each do |product|
+    
+        if product.category_id == 11 
+          @carousel.push(product.image)
+        end
+      end
+      # puts "-------------"
+      # puts @carousel
+      # puts "--------------"
+
+
+
+
   end
 
 end

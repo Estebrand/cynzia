@@ -12,12 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.sliders
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
 
 
-$(function(){
-  $('#myCarousel').carousel('cycle');
-});
+  $(document).ready(function () {
+    $("#slideshow").sliders({
+        interval: 2000
+      });
+  });
