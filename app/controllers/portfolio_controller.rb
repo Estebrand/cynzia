@@ -1,18 +1,34 @@
 class PortfolioController < ApplicationController
   
-  def portrait_people
-  end
+	def portfolio
+		@products = Product.where(category: params[:category_id])
+    @category = Category.find(params[:category_id])
 
-  def portrait_pets
-  end
 
-  def fine_art
+	end
+
+  def portraits
+  	@products = Product.where(category: params[:category_id])
+    @category = Category.find(params[:category_id])
   end
 
   def index
+  @product1 = Product.find_by(category_id: 11)
+  @product2 = Product.find_by(category_id: 13)
+  @product3 = Product.find_by(category_id: 14)
 
-  	@products = Product.all
+
+  @products = Product.all
+   @carousel = []
+  	 
+     @products.each do |product|
+      if product.category_id == 11 
+        @carousel.push(product.image)
+      end
+    end
+
   end
+
 
 
 end

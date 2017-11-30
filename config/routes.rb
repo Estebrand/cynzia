@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'all_users'=> 'admin#all_users'
 
   get 'edit_user' => 'admin#edit_user'
+
   post 'edit_user' => 'admin#edit_user'
 
   get 'show_user'=>'admin#show_user'
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
   get 'delete_line_item' => 'cart#delete_line_item'
 
 # MAIN NAVIGATIONS 
-  root 'storefront#feature'
+  root 'portfolio#index'
 
   get 'store'=> 'storefront#all_items'
 
@@ -40,22 +41,23 @@ Rails.application.routes.draw do
 
   # get 'login' => 'users#edit'
 
+
+
+# Portfolio
+
+  get 'index' => 'portfolio#index'
+
+  get 'portraits' => 'portfolio#portraits'
+
+  get 'portfolio'=> 'portfolio#portfolio'
+
+  get 'pets'=> 'portfolio#portrait_pets'
+
+  get 'fine_art' => 'portfolio/#ine_art'
+
   devise_for :users
   resources :products
 
-
-  
-  get 'portfolio/portrait_people'
-
-  get 'portfolio/portrait_pets'
-
-  get 'portfolio/fine_art'
-
-  get 'storefront/all_items'
-
-  get 'storefront/items_by_category'
-
-  get 'storefront/items_by_brand'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 end
