@@ -14,8 +14,8 @@ class PortfolioController < ApplicationController
 
   def index
   @product1 = Product.find_by(category_id: 11)
-  @product2 = Product.find_by(category_id: 13)
-  @product3 = Product.find_by(category_id: 14)
+  @product2 = Product.find_by(category_id: 12)
+  @product3 = Product.find_by(category_id: 13)
 
 
   @products = Product.all

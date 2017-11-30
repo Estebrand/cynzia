@@ -35,28 +35,25 @@
 			</div>
 			<!-- Portraits -->
 			<div class="feature-link-panel panel col col-lg-4 col-md-4 col-sm col-xs">
-					<% @products.each do |product| %>
-						<% if product.category_id == 12 %>
-
-							<p><%= image_tag product.image.url, class: "feature-link-pic" %></p>
-							<div class="feature-link-text">
-								<h5><%= product.category.name%></h5>
-							</div>
+					
+					<%= link_to portfolio_path(category_id: @product2.category_id) do %> 	<%= image_tag @product2.image, class: "feature-link-pic" %>
 						<% end %>
-					<%end %>
+
+							<div class="feature-link-text">
+								<h5><%= @product2.category.name%></h5>
+							</div>
+				
 				
 			</div>
 			<!-- Store -->
 				<div class="feature-link-panel panel col col-lg-4 col-md-4 col-sm col-xs">
-					<% @products.each do |product| %>
-						<% if product.category_id == 13 %>
+					<%= link_to portfolio_path(category_id: @product3.category_id) do %> 	<%= image_tag @product3.image, class: "feature-link-pic" %>
+							<% end %>
 
-							<p><%= image_tag product.image.url, class: "feature-link-pic" %></p>
 							<div class="feature-link-text">
-								<h5><%= product.category.name %></h5>
+								<h5><%= @product3.category.name %></h5>
 							</div>
-						<% end %>
-					<%end %>
+						
 				
 			</div>
 

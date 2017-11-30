@@ -40,25 +40,36 @@
 
   <!-- MAIN NAVS -->
         
-          <li><%= link_to "Fine Art", root_path %></li>
+          <li><%= link_to "Fine Art", portfolio_path(category_id: 11) %></li>
          
 
           
          
-           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portraits <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <% @categories.limit(4).each do |category| %>
-                <li><%= link_to category.name, portfolio_path(category_id: category.id) %></li>
-              <% end %>
-            </ul>
-            </li>
+       <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portraits <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+         
+              <% @categories.limit(2).each do |category| %>
+               
+                  <li><%= link_to category.name, portfolio_path(category_id: category.id) %></li>
+              
+            <% end %>
+          </ul>
+        </li>
   
 
 
-    <!-- STORE -->
+    <!-- ABOUT / STORE -->
+           <li><%= link_to "About", about_path %></li>
            <li><%= link_to "Store", store_path %></li>
 
+  <!-- Conact Modal -->
+
+         <li>
+          <a href="#" class="" data-toggle="modal" data-toggle="modal" data-target="#myModal">
+            <span class="glyphicon glyphican-plus"></span>Contact
+          </a>
+        </li>
    <!-- VIEW CART  -->
           <% if current_order.line_items.length != 0 %>
             <li><%= link_to "View Cart", view_order_path %></li>
@@ -98,21 +109,35 @@
    		 <%= yield %>
 
 <!-- FOOTER -->
-  <div class="footer">
-
-   <hr> 
-   <a class="nav-item nav-link" >
-    <% if user_signed_in? %>
-      <%=link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
-       <a class="nav-item nav-link" ><%=link_to "Edit Profile", edit_user_registration_path%></a>
-      <% else %>
-      <%= link_to "Sign In", new_user_session_path, method: :create %>
-      <% end %>
-
-   
-  </div>
 
 <!-- END FOOTER -->
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+       
+            </div>
+            <!-- MODAL BODY  -->
+            <div class="modal-body">
+          
+            </div>
+
+      <!-- MODAL FOOTER -->
+
+            <div class="modal-footer">
+             <p>
+              
+                
+              
+             </p>
+
+            </div>
+     <!-- END MODAL FOOTER -->
+          </div>
+        </div>
+      </div>
   </div>
   </body>
 </html>
