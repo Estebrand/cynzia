@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jquery.sliders
 //= require bootstrap-sprockets
+
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
@@ -23,4 +24,11 @@
     $("#slideshow").sliders({
         interval: 2000
       });
+
   });
+
+
+
+
+
+

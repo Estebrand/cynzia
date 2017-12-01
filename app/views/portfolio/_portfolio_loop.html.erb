@@ -34,9 +34,16 @@
 			      	<% end %>
 
 			      		<h3 class="storefront-text">Title: <%= link_to product.name, product %></h3>
-			      		<p class="storefront-text">Price: <%= number_to_currency product.price %></p>
-			      		<p class="storefront-text">Quantity: <%= product.quantity %></p>
+			      		<p class="storefront-text">Year: <%=  product.year %></p>
+			      		<p class="storefront-text">Medium: <%= product.medium %></p>
+			      		<p class="storefront-text">Size: <%= product.size %></p>
 			      		<p class="storefront-text">	Details: <%= product.description %></p>
+
+			      		<% if user_signed_in? %>
+			      		<% if can? :manage, product %>
+			      			 <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-default btn-modal" %></td>
+			      		<% end %>
+			      		<% end %>
 			      </div>
 
       <!-- MODAL FOOTER -->

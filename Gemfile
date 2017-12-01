@@ -20,6 +20,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'jquery-rails'
+gem 'rails-bootstrap-toggle-buttons'
 gem 'devise'
 gem 'cancan'
 gem 'better_errors', group: :development

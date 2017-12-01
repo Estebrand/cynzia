@@ -46,64 +46,55 @@
           
          
        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portraits <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Portraits </a>
           <ul class="dropdown-menu">
          
-              <% @categories.limit(2).each do |category| %>
-               
-                  <li><%= link_to category.name, portfolio_path(category_id: category.id) %></li>
               
-            <% end %>
+          <li><%= link_to "People", portfolio_path(category_id: 12) %></li>
+
+          <li><%= link_to "Pets", portfolio_path(category_id: 13) %></li>                
+              
+         
           </ul>
         </li>
   
+  <!--  Other Options-->
+       <li class="dropdown ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+      <!-- About / store -->
+                <li><%= link_to "About", about_path %></li>
+                <li><%= link_to "Store", store_path %></li>
+                <li><%= link_to "Previous Work", portfolio_path(category_id: 14) %></li>  
+                <hr>
+      <!-- Conact Modal -->            
+                <li>
+                  <a href="#" class="" data-toggle="modal" data-toggle="modal" data-target="#myModal">
+                    Contact
+                  </a>
+                </li>
+      <!-- Login / user session -->
+          <% if user_signed_in? %>
+       
+                <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+                <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
+               </li>
+            
+            <% else %>
+                 <li> <%= link_to "Login", login_path %></li>
+            <% end %>
+          </li>
+            
+         </ul> 
+       </li>
 
-
-    <!-- ABOUT / STORE -->
-           <li><%= link_to "About", about_path %></li>
-           <li><%= link_to "Store", store_path %></li>
-
-  <!-- Conact Modal -->
-
-         <li>
-          <a href="#" class="" data-toggle="modal" data-toggle="modal" data-target="#myModal">
-            <span class="glyphicon glyphican-plus"></span>Contact
-          </a>
-        </li>
-
-  <!-- USER SECTION -->
+    <!-- ADMIN -->
         <% if user_signed_in? %>
 
-
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
-                
-              </li>
-              <div  class="dropdown-menu">
-               <li>
-                <a href="#" class="dropdown-menu" data-toggle="dropdown-menu" role="menu" aria-labelledby="dlabel" aria-expanded="false">Admin <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  
-                  <li><%= link_to "Users", all_users_path %></li>
-                
-                  <li><%= link_to "Inventory", products_path %></li>
-                </ul>
-              </li>
-            </div>
-           </ul> 
-         </li>
-      
-        <% else %>
-            <%= link_to "hello", login_path %>
-        <% end %>
-    <!-- ADMIN -->
-         <% if user_signed_in? %>
-          
-        <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
+          <% if can? :manage, Product %>
+                    
+           <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin</a>
               <ul class="dropdown-menu">
 
                 
@@ -112,9 +103,7 @@
                 <li><%= link_to "Inventory", products_path %></li>
               </ul>
             </li>
-          
-        </ul>
-
+          <% end %>
         <% end %>
 
       </div><!-- /.navbar-collapse -->
