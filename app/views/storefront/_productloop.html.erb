@@ -9,10 +9,16 @@
 
 				<% end %>
 					<h3  class="storefront-text"><%= link_to product.name, product%></h3>
-					<p class="storefront-text"><%= number_to_currency product.price%></p>
+<!-- Price or Sold -->
+					<% if product.quantity != 0 %>
+						<p class="storefront-text"><%= number_to_currency product.price%></p>
+					<% else %>
+						<p class="storefront-text sold">Sold</p>
+					<% end %>
+
 					<p>
 					<a href="#" class="storefront-text" data-toggle="modal" data-toggle="modal" data-target="#myModal_<%= product.id %>">
-						<span class="glyphicon glyphican-plus"></span>Quick Info
+						Details
 					</a>
 				</p>
 			</div>
@@ -32,28 +38,52 @@
 			      		<p><%= image_tag product.image.url, class: "storefront-pic" %></p>	      		
 			      	<% end %>
 
-			      		<h3 class="storefront-text">Title: <%= link_to product.name, product %></h3>
-			      		<p class="storefront-text">Price: <%= number_to_currency product.price %></p>
-			      		<p class="storefront-text">Quantity: <%= product.quantity %></p>
-			      		<p class="storefront-text">	Details: <%= product.description %></p>
+			      	<h3 class="storefront-title"> <%=product.name %></h3>
+
+			      	<div class="row">
+			      		<div class="col col-lg-6 col-md-6 col-sm-6">
+
+					      		
+					      		<p class="storefront-text">Price: <%= number_to_currency product.price %></p>
+				<!-- Price or Sold  -->
+					      		<% if product.quantity != 0 %>
+					      			<p class="storefront-text">Quantity: <%= product.quantity %></p>
+					      		<% else %>
+					      			<p class="storefront-text sold">Sold</p>
+					      		<% end %>
+					      </div>
+					      <div class="col col-lg-6 col-md-6 col-sm-6">
+
+					      		<p class="storefront-text">Medium: <%= product.medium %></p>
+										<p class="storefront-text">Size: <%= product.size %></p>
+										<p class="storefront-text">Year: <%= product.year %></p>
+
+					      		<p class="storefront-text">	Description: <%= product.description %></p>
+			      		</div>
+			      	</div>
 			      </div>
 
       <!-- MODAL FOOTER -->
 
-			      <div class="modal-footer">
-			       <p>
-			       	<%= form_tag add_to_cart_path do %>
-			       		<%= hidden_field_tag :product_id, product.id %>
-			       		<%= number_field_tag :quantity, nil, min: 0,  placeholder: "How many?" %>
-			       		<%= submit_tag "Add to Cart", class: "btn btn-warning" %>
-			       	<% end %>
-			    <!-- EDIT -->
-			       	<% if user_signed_in? %>
-			      		<% if can? :manage, product %>
-			      			 <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-default btn-modal" %></td>
-			      		<% end %>
-			      		<% end %>
-			       </p>
+			   <div class="modal-footer">
+
+	      	  <!-- EDIT -->
+	       	<% if user_signed_in? %>
+	      		<% if can? :manage, product %>
+	      			 <%= link_to 'Edit', edit_product_path(product), class: "btn btn-default btn-modal" %>
+	      		<% end %>
+	      		<% end %>
+
+	      		<p>
+			       <%if product.quantity != 0 %>
+				      
+				       	<%= form_tag add_to_cart_path do %>
+				       		<%= hidden_field_tag :product_id, product.id %>
+				       		<%= number_field_tag :quantity, nil, min: 0, max: product.quantity,  placeholder: "How many?" %>
+				       		<%= submit_tag "Add to Cart", class: "btn btn-warning" %>
+				       	<% end %>
+				       <% end %>
+				     </p>
 
 			      </div>
 	   <!-- END MODAL FOOTER -->
