@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-# ADMIN
+# USERS / ADMIN
   get 'all_users'=> 'admin#all_users'
 
   get 'edit_user' => 'admin#edit_user'
@@ -10,6 +10,14 @@ Rails.application.routes.draw do
   get 'show_user'=>'admin#show_user'
 
   get 'delete_user'=> 'admin#delete_user'
+
+  devise_scope :user do
+
+  get 'login' => 'devise/sessions#create'
+
+  post 'login' => 'devise/sessions#create'
+
+  end
 
  # CART
   post 'add_to_cart'=> 'cart#add_to_cart'
@@ -40,8 +48,6 @@ Rails.application.routes.draw do
   get 'about' => 'portfolio#about'
 
   # get 'login' => 'users#edit'
-
-
 
 # Portfolio
 

@@ -1,2 +1,21 @@
-<h1>Admin#show_user</h1>
-<p>Find me in app/views/admin/show_user.html.erb</p>
+<h1> User Profile for <%= @user.email %></h1>
+
+<p><strong>User: </strong><%= @user.email %></p>
+<p><strong>Role: </strong><%= @user.role %></p>
+
+<% if can? :manage, User %>
+
+	<div class="well">
+
+		<%= form_tag edit_user_path do %>
+
+		<%= select_tag(:role, options_for_select(["admin", "employee", "guest"]), :prompt => "Please select") %>
+			<%= hidden_field_tag :id, @user.id %>
+			<%= submit_tag "Update Role", class: "btn btn-warning" %>
+
+		<% end %>
+
+		<%= link_to "Delete User", delete_user_parth(id: @user.id), class: 'btn btn-danger' %>
+	</div>
+
+<% end %>

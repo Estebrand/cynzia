@@ -20,6 +20,10 @@ class ApplicationController < ActionController::Base
   	@brands = Product.pluck(:brand).sort.uniq
   end
 
+  def count_items
+    @line_items = current_order.line_items
+  end
+
   def current_order
     if !session[:order_id].nil?
       Order.find(session[:order_id])
@@ -28,8 +32,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def count_items
-    @line_items = current_order.line_items
-  end
+ 
 
 end

@@ -70,10 +70,6 @@
             <span class="glyphicon glyphican-plus"></span>Contact
           </a>
         </li>
-   <!-- VIEW CART  -->
-          <% if current_order.line_items.length != 0 %>
-            <li><%= link_to "View Cart", view_order_path %></li>
-          <% end %>
 
   <!-- USER SECTION -->
         <% if user_signed_in? %>
@@ -83,16 +79,33 @@
             <a href="#" class="dropdown-toggle glyphicon glyphicon-user" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
-              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-            </ul>
-          </li>
-
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+                
+              </li>
+              <div  class="dropdown-menu">
+               <li>
+                <a href="#" class="dropdown-menu" data-toggle="dropdown-menu" role="menu" aria-labelledby="dlabel" aria-expanded="false">Admin <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  
+                  <li><%= link_to "Users", all_users_path %></li>
+                
+                  <li><%= link_to "Inventory", products_path %></li>
+                </ul>
+              </li>
+            </div>
+           </ul> 
+         </li>
+      
+        <% else %>
+            <%= link_to "hello", login_path %>
         <% end %>
-
     <!-- ADMIN -->
-            <li class="dropdown">
+         <% if user_signed_in? %>
+          
+        <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
               <ul class="dropdown-menu">
+
                 
                 <li><%= link_to "Users", all_users_path %></li>
               
@@ -102,10 +115,28 @@
           
         </ul>
 
+        <% end %>
+
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
 <!-- End of Nav bar -->
+<!--  Cart Icon -->
+
+
+
+  <div class="container">
+        <div class="cart">
+      
+     
+        <% if current_order.line_items.length != 0 %>
+            <li><%= link_to  view_order_path do %>
+              <%= image_tag "full_cart.png", class: 'cart-pic pull-right'%></li>
+          <% end %>
+        <% end %>
+        </div>
+  </div>
+<!--  End of Cart Icon -->
    		 <%= yield %>
 
 <!-- FOOTER -->
