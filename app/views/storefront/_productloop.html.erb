@@ -47,6 +47,12 @@
 			       		<%= number_field_tag :quantity, nil, min: 0,  placeholder: "How many?" %>
 			       		<%= submit_tag "Add to Cart", class: "btn btn-warning" %>
 			       	<% end %>
+			    <!-- EDIT -->
+			       	<% if user_signed_in? %>
+			      		<% if can? :manage, product %>
+			      			 <td><%= link_to 'Edit', edit_product_path(product), class: "btn btn-default btn-modal" %></td>
+			      		<% end %>
+			      		<% end %>
 			       </p>
 
 			      </div>

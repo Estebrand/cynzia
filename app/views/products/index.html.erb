@@ -9,13 +9,14 @@
 <table class='table'>
   <thead>
     <tr>
-      <th class="products-label">Image</th>
+      <th class="products-label">Piece</th>
       <th class="products-label">Name</th>
       <th class="products-label">Category</th>
       <th class="products-label">Medium</th>
       <th class="products-label">Year</th>
       <th class="products-label">Size</th>
       <th class="products-label">Description</th>
+      <th class="products-label">Sale</th>
       <th class="products-label">Price</th>
       <th class="products-label">Quantity</th>
       <th colspan="3"></th>
@@ -32,6 +33,7 @@
         <td><%= product.year %></td>
         <td><%= product.size %></td>
         <td><%= product.description %></td>
+        <td><%= product.for_sale %></td>
         <td><%= number_to_currency product.price %></td>
         <td><%= product.quantity %></td>
         <td><%= link_to 'Show', product, class: "btn btn-default"  %></td>

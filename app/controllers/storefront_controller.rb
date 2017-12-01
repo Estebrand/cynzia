@@ -1,7 +1,7 @@
 class StorefrontController < ApplicationController
  
   def all_items
-  	@products = Product.all
+  	@products = Product.where(:for_sale => true)
   end
 
   def items_by_category
@@ -14,24 +14,5 @@ class StorefrontController < ApplicationController
     @brand = params[:brand]
   end
 
-  def feature
-   # Make Array
-    @products = Product.all
-     @carousel = []
-  	 
-     @products.each do |product|
-    
-        if product.category_id == 11 
-          @carousel.push(product.image)
-        end
-      end
-      # puts "-------------"
-      # puts @carousel
-      # puts "--------------"
-
-
-
-
-  end
 
 end
